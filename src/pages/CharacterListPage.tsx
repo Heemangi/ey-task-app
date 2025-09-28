@@ -5,7 +5,7 @@ import { useSearch } from '@tanstack/react-router';
 import type { CharacterAPIResponse } from '../types';
 
 export default function CharacterListPage() {
-  const search = useSearch({ from: '/characters' }) as { page?: string };
+  const search = useSearch({ from: '/' }) as { page?: string };
   const page = Number(search.page) || 1;
 
   const { data, isLoading, refetch, isError } = useQuery<CharacterAPIResponse>({
@@ -17,7 +17,7 @@ export default function CharacterListPage() {
   const handlePageChange = (delta: number) => {
     const newPage = page + delta;
     if (newPage > 0) {
-      window.history.pushState({}, '', `/characters?page=${newPage}`);
+      window.history.pushState({}, '', `/?page=${newPage}`);
       window.location.reload();
     }
   };

@@ -12,7 +12,7 @@ const rootRoute = createRootRoute({
 });
 
 const characterListRoute = createRoute({
-  path: '/characters',
+  path: '/',
   getParentRoute: () => rootRoute,
   component: CharacterListPage,
 });
@@ -22,6 +22,7 @@ const characterDetailRoute = createRoute({
   getParentRoute: () => rootRoute,
   component: CharacterDetailPage,
 });
+
 
 const routeTree = rootRoute.addChildren([
   characterListRoute,
